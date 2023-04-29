@@ -1,9 +1,15 @@
-export const  ItemList =(product) => (
-    <div>
-        <h1>
-            {product.title} ${product.price}
-        </h1>
-        <img src={product.img} alt={product.description}/>
-        <p>{product.description}</p>
-    </div>
-)
+import React from 'react';
+import Item from '../Item/Item';
+
+export const ItemList = ({ productsFetch }) => {
+    return (
+        <div className="container">
+        <div className="d-flex justify-content-aroud flex-wrap">
+        {productsFetch.map((product) => (
+          <Item key={product.id} product={product} />
+        ))}
+      </div></div>
+    );
+  };
+  
+
