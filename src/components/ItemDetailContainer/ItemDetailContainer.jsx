@@ -2,6 +2,8 @@
 import { useState,useEffect } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 
+
+export const ItemDetailContainer=()=>{
 const productList={
     title:"Notebook1",
     description: "lorem ipsum dolor sit amet, consectet, sed do eiusmod tempor incididunt ut labore et, consectetur adipiscing elit. Ut enim ad minim ven, quis nostrud, non proident",
@@ -9,8 +11,6 @@ const productList={
     img:"https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70",
 
 }
-
-export const ItemDetailContainer=()=>{
     const [product,setProduct] =useState({})
     useEffect(()=>{
 
@@ -22,9 +22,9 @@ export const ItemDetailContainer=()=>{
     productPromise.then(result=>setProduct(result))
     },[])
     return(
-/*         <Container>
-            
+/*        <Container>
+             
         </Container>  */
-        <ItemDetail product={product}/>
+       <ItemDetail product={product}/>
     )
 }

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import {ItemList} from "../ItemList/ItemList";
 
-/* const styles = {
+const styles = {
     margin: "0 auto",
     width: 1170,
     background: "gray",
     height: "100vh",
     color: "white",
   };
- const Container = (props) => {
-    return <div style={styles}>{props.children}</div>;
-  }; */
+  const Container = ({ children }) => (
+    <div style={{ width: 1170, margin: "30px auto" }}>{children}</div>
+  )
   const ItemListContainer = ({greeting},)=> {
     const [productsFetch, setProductsFetch] = useState([]);
 
@@ -22,10 +22,11 @@ import {ItemList} from "../ItemList/ItemList";
   
   } , [] )
     return (
+      <Container>
         <div className='fw-bolder'>
         {greeting}
         <ItemList productsFetch={productsFetch}/>        
-        </div>
+        </div></Container>
     )
 }
 export default ItemListContainer;

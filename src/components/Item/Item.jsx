@@ -1,4 +1,5 @@
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
 const Item = ({ product }) => {
   const { img, title, description, price } = product;
@@ -10,6 +11,7 @@ const Item = ({ product }) => {
           <p className="card-text">{description}</p>
           <p className="card-text">${price}</p>
           <button className="btn btn-primary">Ver más</button>
+          <ItemCount initial={1} stockDisponible={10} onAdd={(counter) => console.log('cantidad agregada',counter)}/>
         </div>
       </div>
     );
