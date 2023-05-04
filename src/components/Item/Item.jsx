@@ -1,5 +1,4 @@
 import React from "react";
-import ItemCount from "../ItemCount/ItemCount";
 import {Link} from 'react-router-dom';
 
 const Item = ({ product }) => {
@@ -22,7 +21,7 @@ const Item = ({ product }) => {
       </div>
           
           <p className=" card-footer">${price}</p>
-          <Link to={`/product/${id}`}> <button className="btn btn-primary">Ver más</button></Link>
+          <Link to={`/product/${id}`} > <button varirant='primary' className="btn btn-primary">Ver más</button></Link>
         </div>
       </div>
     );

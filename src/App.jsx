@@ -9,6 +9,8 @@ import { Routes,Route } from 'react-router-dom';
 import { ItemDetail } from './components/ItemDetail/ItemDetail';
 import {Link} from 'react-router-dom';
 import {Contact} from './views/Contact';
+import { Cart } from './views/Cart';
+import { CheckOut } from './views/CheckOut';
  
 function App(){
   
@@ -19,10 +21,10 @@ function App(){
       <Routes>
         <Route path="/" element={<ItemListContainer greeting={"Bienvenidos"}/>}/>
         <Route path="/category/:id" element={<ItemListContainer />}/>
-        <Route path="/product/:id" element={<ItemDetail/>}/>
+        <Route path="/product/:id" element={<ItemDetailContainer/>}/>
         <Route path ='/contact' element={<Contact/>}/>
-        <Route path="/cart" element={<ItemDetailContainer/>}/>
-        <Route path="/checkout" element={<ItemDetailContainer/>}/>
+        <Route path="/cart" element={<Cart/>}/>
+        <Route path="/checkout" element={<CheckOut/>}/>
         <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
         
       </Routes>

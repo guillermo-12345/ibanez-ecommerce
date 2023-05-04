@@ -2,6 +2,7 @@ import ItemCount from "../ItemCount/ItemCount"
 
 export const ItemDetail =({id,category,title,description,price,img,stock}) => {
     return(
+        
     <div className="card shadow-lg" style={{ width: 1170, margin: "30px auto" }}>
         <h1 className="text-uppercase p-2">
             {title} ${price}

@@ -31,7 +31,7 @@ const NavBar=()=>{
                                 </ul>
                             </div>
                             <li className="nav-item"><a className="nav-link"  href="#">About us</a></li>
-                            <li className="nav-item"><a className="nav-link" href="#"><Link to={"/contact"}>Contacto</Link></a></li>
+                            <Link to={"/contact"}Contacto><li className="nav-item"><a className="nav-link" href="#"> </a></li></Link>
                         </ul>
                         <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
