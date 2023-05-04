@@ -1,22 +1,22 @@
 import React from "react"
+import {Link} from 'react-router-dom'
 import CartWidget from "../CartWidget/CartWidget"
 import 'bootstrap';
-import ItemCount from "../ItemCount/ItemCount";
 
 const NavBar=()=>{
     return (
         <header className="header">         
             <nav className="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="light">
                 <div className="container-fluid">
-                    <a className="navbar-brand text-opacity-20 text-primary" href="#">
+                    <Link to={"/"}><a className="navbar-brand text-opacity-20 text-primary" href="#">
                         Ibanez E-Commerce<img src="../logo.png" alt="Logo"  width="30" height="30" className="mx-3"/>
-                    </a>
+                    </a></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
+                            <li className="nav-item"><a className="nav-link active" href="#"><Link to={"/"}>Home</Link></a></li>
                             <div className="nav-item dropdown">
                                 <a className="nav-link  dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Productos</a>
                                 <ul className="dropdown-menu">
@@ -31,7 +31,7 @@ const NavBar=()=>{
                                 </ul>
                             </div>
                             <li className="nav-item"><a className="nav-link"  href="#">About us</a></li>
-                            <li className="nav-item"><a className="nav-link" href="#">Contacto</a></li>
+                            <li className="nav-item"><a className="nav-link" href="#"><Link to={"/contact"}>Contacto</Link></a></li>
                         </ul>
                         <form className="d-flex" role="search">
                         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>

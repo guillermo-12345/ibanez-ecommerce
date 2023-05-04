@@ -2,10 +2,11 @@
 import { useState,useEffect } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../asyncMock";
-
+import { useParams } from 'react-router-dom'
 
 
 const ItemDetailContainer=()=>{
+    const {prodid}=useParams()
 /*     const productList={
         title:"Notebook1",
         description: "lorem ipsum dolor sit amet, consectet, sed do eiusmod tempor incididunt ut labore et, consectetur adipiscing elit. Ut enim ad minim ven, quis nostrud, non proident",
@@ -13,9 +14,10 @@ const ItemDetailContainer=()=>{
         img:"https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70",
 
     } */
+        
          const [product,setProduct] =useState(null)
         useEffect(()=>{
-            getProductById(1)
+            getProductById(prodid)
             .then(response=>{
                 setProduct(response)
             })

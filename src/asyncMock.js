@@ -1,7 +1,6 @@
-
 import {React, useEffect, useState} from 'react'
 
-const products=[{"id":1,"category":"Notebook","title":"Notebook1","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." , "img": "https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70","price":1000,"stock":100},
+const PRODUCTS=[{"id":"1","category":"Notebook","title":"Notebook1","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." , "img": "https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70","price":1000,"stock":100},
 {"id":2,"category":"Notebook","title":"Notebook2","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "img": "https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70","price":2000,"stock":500},
 {"id":3,"category":"Notebook","title":"Notebook1","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." , "img": "https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70","price":1000,"stock":100},
 {"id":4,"category":"Notebook","title":"Notebook2","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", "img": "https://rukminim1.flixcart.com/image/416/416/jrxtea80/laptop-skin-decal/s/d/t/mcbk-gw11996-printed-destiny-2-skin-top-gadgets-wrap-13-original-imafdkmmqkfvphjh.jpeg?q=70","price":2000,"stock":500}
@@ -10,32 +9,33 @@ const products=[{"id":1,"category":"Notebook","title":"Notebook1","description":
 
 export const getProduct =()=>{
     return new Promise((resolve)=>{
-        setTimeout(()=>resolve(products))
+        setTimeout(()=>resolve(PRODUCTS))
     },300)
 }
 
 export const getProductById =(productId)=>{
+
     return new Promise((resolve)=>{
-        setTimeout(()=>resolve(products.find(prod=>prod.id===productId)))
+        setTimeout(()=>resolve(PRODUCTS.find(prod=>prod.id===productId)))
     },400)
 }
 
 export const getProductsByCategory =(categoryId)=>{
     return new Promise((resolve)=>{
         setTimeout(()=>{
-            resolve(products.filter(prod=>prod.category===categoryId))
+            resolve(PRODUCTS.filter(prod=>prod.category===categoryId))
         },500)
     })
 }
 
-const categories = ["Notebooks", "Celulares", "Tablets"]
+const categories = ["Notebook", "Celular", "Tablet"]
 
 const Container = ({ children }) => (
 	<div style={{ width: 1170, margin: "30px auto" }}>{children}</div>
 )
 
 export const OptionList = () => {
-	const { product, selectValue, changeSelect } = useList(products)
+	const { products, selectValue, changeSelect } = useList(PRODUCTS)
 
 	return (
 		<Container>
@@ -46,10 +46,10 @@ export const OptionList = () => {
 					<option value={category}>{category}</option>
 				))}
 			</select>
-			{!product.length ? (
+			{!products?.length ? (
 				<div>Loading...</div>
 			) : (
-				product.map(prod => (
+				products.map(prod => (
 					<div key={prod.id}>
 						{(prod.title)} - {prod.category}
 					</div>
@@ -71,8 +71,8 @@ export const useList = productList => {
 			}, 2000)
 		})
 		productPromise.then(result => {
-			setProduct(result) // 100 - fuente total
-			setRenderProducts(result) // 100 - filtrados
+			setProduct(result)
+			setRenderProducts(result)
 		})
 	}, [productList])
 

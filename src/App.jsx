@@ -5,8 +5,11 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import React from 'react';
 import { Routes,Route } from 'react-router-dom';
-import { OptionList } from './asyncMock';
-
+/* import { OptionList } from './asyncMock'; */
+import { ItemDetail } from './components/ItemDetail/ItemDetail';
+import {Link} from 'react-router-dom';
+import {Contact} from './views/Contact';
+ 
 function App(){
   
   return (
@@ -15,13 +18,17 @@ function App(){
       
       <Routes>
         <Route path="/" element={<ItemListContainer greeting={"Bienvenidos"}/>}/>
-        <Route path="/category/:categoryId" element={<ItemListContainer/>}/>
-        <Route path="/category/:productId" element={<ItemDetailContainer/>}/>
+        <Route path="/category/:id" element={<ItemListContainer />}/>
+        <Route path="/product/:id" element={<ItemDetail/>}/>
+        <Route path ='/contact' element={<Contact/>}/>
+        <Route path="/cart" element={<ItemDetailContainer/>}/>
+        <Route path="/checkout" element={<ItemDetailContainer/>}/>
         <Route path="*" element={<h1>404 NOT FOUND</h1>}/>
         
       </Routes>
-      <OptionList/>
-    </div>
+      <Link to={"/"}> <button className="my-xxl-5 justify-content-end btn btn-outline-success">🏠 HOME</button></Link>
+{/*       <OptionList/>
+ */}    </div>
   );
 }
 

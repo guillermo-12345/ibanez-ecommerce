@@ -1,11 +1,13 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import {Link} from 'react-router-dom';
 
 const Item = ({ product }) => {
-  const { img, title, description, price } = product;
+
+  const {id, img, title, description, price } = product;
     return (
       <div className="card shadow" style={{ width: '20rem', margin: '.5rem' }}>
-{      <img src={img} className="card-img-top shadow rounded-2 p-3" alt={title} /> }
+       <img src={img} className="card-img-top shadow rounded-2 p-3" alt={title} /> 
         <div className="card-body">
           <p className=" text-uppercase card-title">{title}</p>
           <p>
@@ -20,8 +22,7 @@ const Item = ({ product }) => {
       </div>
           
           <p className=" card-footer">${price}</p>
-          <button className="btn btn-primary">Ver más</button>
-          {/* <ItemCount initial={1} stockDisponible={10} onAdd={(counter) => console.log('cantidad agregada',counter)}/> */}
+          <Link to={`/product/${id}`}> <button className="btn btn-primary">Ver más</button></Link>
         </div>
       </div>
     );

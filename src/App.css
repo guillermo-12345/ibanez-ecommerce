@@ -38,7 +38,10 @@
   }
 } */
 
-li,ul {list-style:none}
+li,ul,Link,.App-link,:any-link {
+  list-style:none;
+  text-decoration: none;
+}
 
 .App{ 
   min-height: 800px;
