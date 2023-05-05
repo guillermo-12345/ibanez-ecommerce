@@ -6,7 +6,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import React from 'react';
 import { Routes,Route } from 'react-router-dom';
 /* import { OptionList } from './asyncMock'; */
-import { ItemDetail } from './components/ItemDetail/ItemDetail';
 import {Link} from 'react-router-dom';
 import {Contact} from './views/Contact';
 import { Cart } from './views/Cart';
@@ -20,8 +19,8 @@ function App(){
       
       <Routes>
         <Route path="/" element={<ItemListContainer greeting={"Bienvenidos"}/>}/>
-        <Route path="/category/:id" element={<ItemListContainer />}/>
-        <Route path="/product/:id" element={<ItemDetailContainer/>}/>
+        <Route path="/category/:categoryId" element={<ItemListContainer />}/>
+        <Route path="/product/:prodid" element={<ItemDetailContainer/>}/>
         <Route path ='/contact' element={<Contact/>}/>
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/checkout" element={<CheckOut/>}/>

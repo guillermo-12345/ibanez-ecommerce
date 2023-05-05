@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import Accordion from 'react-bootstrap/Accordion';
 
 const Item = ({ product }) => {
 
@@ -9,19 +10,31 @@ const Item = ({ product }) => {
        <img src={img} className="card-img-top shadow rounded-2 p-3" alt={title} /> 
         <div className="card-body">
           <p className=" text-uppercase card-title">{title}</p>
-          <p>
-        <a className="btn btn-light" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Mostrar Descripcion
-        </a>
-      </p>
-        <div className="collapse" id="collapseExample">
-        <div className="card card-body">
-          <p className=" text-body-secondary">{description}</p>
-        </div>
-      </div>
-          
-          <p className=" card-footer">${price}</p>
-          <Link to={`/product/${id}`} > <button varirant='primary' className="btn btn-primary">Ver más</button></Link>
+          <Accordion defaultActiveKey="0">
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>
+                Mostrar Descripcion
+              </Accordion.Header>
+              <Accordion.Body>
+                {description}
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+          <div className="collapse" id="collapseExample">
+            <div className="card card-body">
+              <p className=" text-body-secondary">
+                {description}
+              </p>
+            </div>
+          </div>
+          <p className=" card-footer">
+            ${price}
+          </p>
+          <Link to={`/product/${id}`} > 
+            <button varirant='primary' className="btn btn-primary">
+              Ver más
+            </button>
+          </Link>
         </div>
       </div>
     );

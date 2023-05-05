@@ -48,7 +48,6 @@ li,ul,Link,.App-link,:any-link {
   position: relative;
   text-align: center;
   display: grid;
-  position: relative;
   isolation: isolate;
 
 }

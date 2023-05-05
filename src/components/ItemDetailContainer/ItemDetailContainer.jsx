@@ -1,4 +1,3 @@
-
 import { useState,useEffect } from "react";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { getProductById } from "../../asyncMock";
@@ -10,7 +9,7 @@ const ItemDetailContainer=()=>{
 
          const [product,setProduct] =useState(null)
         useEffect(()=>{
-            console.log('ID producto',prodid)
+
             getProductById(prodid)
             .then(response=>{
                 setProduct(response)
