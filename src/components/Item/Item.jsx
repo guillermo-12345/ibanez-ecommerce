@@ -2,12 +2,10 @@ import React from "react";
 import {Link} from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 
-const Item = ({ product }) => {
-
-  const {id, img, title, description, price } = product;
+const Item = ({ id, title, img, price, description }) => {
     return (
       <div className="card shadow" style={{ width: '20rem', margin: '.5rem' }}>
-       <img src={img} className="card-img-top shadow rounded-2 p-3" alt={title} /> 
+       <img src={img} className="card-img-top shadow rounded-2 object-fit-fill p-3"  alt={title} /> 
         <div className="card-body">
           <p className=" text-uppercase card-title">{title}</p>
           <Accordion defaultActiveKey="0">
@@ -30,13 +28,14 @@ const Item = ({ product }) => {
           <p className=" card-footer">
             ${price}
           </p>
-          <Link to={`/product/${id}`} > 
+          <Link to={`/item/${id}`} > 
             <button varirant='primary' className="btn btn-primary">
               Ver más
             </button>
           </Link>
         </div>
       </div>
-    );
-  };
-  export default Item;
+    )
+  }
+  
+  export default Item

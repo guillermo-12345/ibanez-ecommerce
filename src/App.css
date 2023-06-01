@@ -67,6 +67,7 @@ li,ul,Link,.App-link,:any-link {
 }
 
 
+
 .App {
   text-align: center;
 }
@@ -81,6 +82,7 @@ li,ul,Link,.App-link,:any-link {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -97,6 +99,10 @@ li,ul,Link,.App-link,:any-link {
   color: #61dafb;
 }
 
+.App-link:hover {
+  text-decoration: bisque;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -104,4 +110,24 @@ li,ul,Link,.App-link,:any-link {
   to {
     transform: rotate(360deg);
   }
+}
+
+.ButtonCheckOut {
+  padding: 10px 20px;
+  background-color: #f8558b;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.5; 
+}
+
+.ButtonCheckOut.Active {
+  opacity: 1; 
+}
+
+.ButtonCheckOut:hover {
+  background-color: #bc808e;
 }

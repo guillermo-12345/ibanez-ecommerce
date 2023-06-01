@@ -10,6 +10,7 @@ const ItemCount=({stockDisponible,initial,onAdd})=>{
     const handlerIncreaseCount=()=>{
       if(stockDisponible>counter) setCounter(counter+1)
     }
+    
    
     return(
     <div className="p-2">
